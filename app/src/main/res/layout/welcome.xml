@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="40dp"
+    android:paddingTop="30dp"
+    android:paddingRight="40dp">
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME TO"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TAKE PART IN OUR SURVEY!"
+        android:textColor="#000000"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Before we start,here are things you should know:"
+        android:textColor="#5E5E5E"
+        android:textSize="24sp"
+        android:layout_marginTop="22dp"/>
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Please be honest when making your choice."
+        android:textColor="#5E5E5E"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/textview5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-We are just doing a research so you don't have to fake your information."
+        android:textColor="#5E5E5E"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/textview6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-Please follow the step we designed for you and don't skip any questions."
+        android:textColor="#5E5E5E"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="I accept these requests."
+        android:textColor="#000000"
+        android:color="@color/colorPrimaryDark"
+        android:theme="@style/MyCheckBox"
+        android:textSize="17sp"
+        android:layout_marginTop="60dp"
+    />
+    <Button
+        android:id="@+id/button"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:text="LET'S START!"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:theme="@style/MyButton"
+        />
+</LinearLayout>
