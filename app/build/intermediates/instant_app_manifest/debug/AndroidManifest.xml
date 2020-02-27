@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mg.studio.android.survey"
+    android:targetSandboxVersion="2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="29" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="mg.studio.android.survey.finishsurveyActivity" />
+        <activity android:name="mg.studio.android.survey.questiontwelveActivity" />
+        <activity android:name="mg.studio.android.survey.questionelevenActivity" />
+        <activity android:name="mg.studio.android.survey.questiontenActivity" />
+        <activity android:name="mg.studio.android.survey.questionnineActivity" />
+        <activity android:name="mg.studio.android.survey.questioneightActivity" />
+        <activity android:name="mg.studio.android.survey.questionsevenActivity" />
+        <activity android:name="mg.studio.android.survey.questionsixActivity" />
+        <activity android:name="mg.studio.android.survey.questionfiveActivity" />
+        <activity android:name="mg.studio.android.survey.questionfourActivity" />
+        <activity android:name="mg.studio.android.survey.questionthreeActivity" />
+        <activity android:name="mg.studio.android.survey.questiontwoActivity" />
+        <activity android:name="mg.studio.android.survey.questiononeActivity" />
+        <activity android:name="mg.studio.android.survey.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
