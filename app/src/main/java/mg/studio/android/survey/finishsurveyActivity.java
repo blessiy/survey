@@ -8,21 +8,18 @@ import android.view.View;
 
 public class finishsurveyActivity extends AppCompatActivity {
 
-    private Button finishbutton;
+    private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finish_survey);
-        finishbutton=findViewById(R.id.button);
-        finishbutton.setOnClickListener(new View.OnClickListener() {
+        button=findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //跳转到MainActivity
-                Intent intent = new Intent(finishsurveyActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("code", 0);
+                Intent intent = new Intent(finishsurveyActivity.this, reportActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

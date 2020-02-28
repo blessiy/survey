@@ -21,7 +21,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Which brand of your phone will you choose if yoou are going to buy a new one?"
+        android:text="Which brand of your phone will you choose if you are going to buy a new one?"
         android:textColor="#000000"
         android:textSize="20sp"
         />

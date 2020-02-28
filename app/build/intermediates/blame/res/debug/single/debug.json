@@ -136,6 +136,10 @@
         "source": "E:\\AS Projects\\coding2_survey\\app\\src\\main\\res\\layout\\question_eight.xml"
     },
     {
+        "merged": "E:\\AS Projects\\coding2_survey\\app\\build\\intermediates\\res\\merged\\debug\\layout_report.xml.flat",
+        "source": "E:\\AS Projects\\coding2_survey\\app\\src\\main\\res\\layout\\report.xml"
+    },
+    {
         "merged": "E:\\AS Projects\\coding2_survey\\app\\build\\intermediates\\res\\merged\\debug\\layout_question_six.xml.flat",
         "source": "E:\\AS Projects\\coding2_survey\\app\\src\\main\\res\\layout\\question_six.xml"
     }

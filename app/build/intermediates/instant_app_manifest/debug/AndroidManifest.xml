@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="mg.studio.android.survey.reportActivity" />
         <activity android:name="mg.studio.android.survey.finishsurveyActivity" />
         <activity android:name="mg.studio.android.survey.questiontwelveActivity" />
         <activity android:name="mg.studio.android.survey.questionelevenActivity" />
