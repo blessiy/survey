@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\f7fa931c10060cb31b4ececcd856b65d\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\e27002105a9bdd38fe216ef919b747b9\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -25,25 +25,33 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\bless\.gradle\ca
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\54ec9a60a0f20829d9c5323f1ce0908c\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\0571339fd4cb74441b19561f6766bb98\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\0f91f258f9d0abaa0e56c019df47bd85\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:1-42:12
 		INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:5:5-7:11
+	android:name
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:6:9-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:8:5-10:11
+	android:name
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:9:9-65
 application
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:5:5-33:19
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:12:5-40:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.1.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:5-89
@@ -53,87 +61,87 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\bl
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\bless\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:18:9-40
 activity#mg.studio.android.survey.reportActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:12:9-61
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:19:9-61
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:12:19-49
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:19:19-49
 activity#mg.studio.android.survey.finishsurveyActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:13:9-58
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:20:9-58
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:13:19-55
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:20:19-55
 activity#mg.studio.android.survey.questiontwelveActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:14:9-60
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:21:9-60
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:14:19-57
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:21:19-57
 activity#mg.studio.android.survey.questionelevenActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:15:9-60
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:22:9-60
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:15:19-57
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:22:19-57
 activity#mg.studio.android.survey.questiontenActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:16:9-57
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:23:9-57
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:16:19-54
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:23:19-54
 activity#mg.studio.android.survey.questionnineActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:17:9-58
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:24:9-58
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:17:19-55
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:24:19-55
 activity#mg.studio.android.survey.questioneightActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:18:9-59
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:25:9-59
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:18:19-56
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:25:19-56
 activity#mg.studio.android.survey.questionsevenActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:19:9-59
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:26:9-59
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:19:19-56
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:26:19-56
 activity#mg.studio.android.survey.questionsixActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:20:9-57
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:27:9-57
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:20:19-54
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:27:19-54
 activity#mg.studio.android.survey.questionfiveActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:21:9-58
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:28:9-58
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:21:19-55
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:28:19-55
 activity#mg.studio.android.survey.questionfourActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:22:9-58
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:29:9-58
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:22:19-55
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:29:19-55
 activity#mg.studio.android.survey.questionthreeActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:23:9-59
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:30:9-59
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:23:19-56
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:30:19-56
 activity#mg.studio.android.survey.questiontwoActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:24:9-57
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:31:9-57
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:24:19-54
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:31:19-54
 activity#mg.studio.android.survey.questiononeActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:25:9-57
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:32:9-57
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:25:19-54
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:32:19-54
 activity#mg.studio.android.survey.MainActivity
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:26:9-32:20
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:33:9-39:20
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:26:19-47
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:33:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:34:13-38:29
 action#android.intent.action.MAIN
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:28:17-69
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:35:17-69
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:35:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:30:17-77
+ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:37:17-77
 	android:name
-		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml:37:27-74
 uses-sdk
 INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AS Projects\coding2_survey\app\src\main\AndroidManifest.xml

@@ -1,5 +1,6 @@
 package mg.studio.android.survey;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 import android.content.SharedPreferences;
@@ -8,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
+
 
 public class questionfiveActivity extends AppCompatActivity {
     private Button mbutton;
@@ -20,7 +21,7 @@ public class questionfiveActivity extends AppCompatActivity {
     private CheckBox mcheckbox6;
     private CheckBox mcheckbox7;
     private String manswer5;
-    private LinearLayout mlinearlayout;
+    private ConstraintLayout mconstraintlayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class questionfiveActivity extends AppCompatActivity {
         mcheckbox5=findViewById(R.id.checkbox5);
         mcheckbox6=findViewById(R.id.checkbox6);
         mcheckbox7=findViewById(R.id.checkbox7);
-        mlinearlayout=findViewById(R.id.linearlayout);
+        mconstraintlayout=findViewById(R.id.constraintlayout);
 
         mbutton=findViewById(R.id.button);
         mbutton.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +43,10 @@ public class questionfiveActivity extends AppCompatActivity {
             public void onClick(View v) {
                 StringBuilder as5 = new StringBuilder();
                 //检查checkbox
-                int count = mlinearlayout.getChildCount();
+                int count = mconstraintlayout.getChildCount();
                 for(int i = 0;i < count;i++){
 //					获得子控件对象
-                    View child = mlinearlayout.getChildAt(i);
+                    View child = mconstraintlayout.getChildAt(i);
 //					判断是否是CheckBox
                     if(child instanceof CheckBox){
 //						转为CheckBox对象

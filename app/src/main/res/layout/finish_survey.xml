@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="40dp"
     android:paddingTop="30dp"
     android:paddingRight="40dp"
-    android:background="#ffffff">
+    android:background="#FFFFFF">
 
     <!--  Start : Your code should be within this block -->
     <TextView
@@ -15,21 +15,32 @@
         android:layout_height="wrap_content"
         android:text="THANK YOU"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
     <TextView
         android:id="@+id/textview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FOR YOUR ANSWERS!"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/textview1"
+        app:layout_constraintLeft_toLeftOf="@id/textview1"
+
+        android:layout_marginLeft="10dp"
+        />
     <ImageView
         android:id="@+id/imageview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@mipmap/b"
         android:scaleType="fitCenter"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview2"
         />
 
     <Button
@@ -39,9 +50,12 @@
         android:layout_gravity="center"
         android:text="COLLECT"
         android:textSize="20sp"
-        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="40dp"
         android:theme="@style/MyButton"
         />
     <!-- END    : Your code should be within this block -->
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
