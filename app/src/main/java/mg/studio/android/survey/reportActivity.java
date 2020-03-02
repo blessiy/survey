@@ -1,10 +1,14 @@
 package mg.studio.android.survey;
-
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
+
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.widget.Button;
@@ -13,14 +17,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.CopyOption;
-import java.nio.file.Files;
 
 public class reportActivity extends AppCompatActivity {
-
     private TextView mques1;
     private TextView manswer1;
     private TextView mques2;
@@ -71,6 +71,7 @@ public class reportActivity extends AppCompatActivity {
     private String mqs12;
     private String mans12;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,8 +143,11 @@ public class reportActivity extends AppCompatActivity {
         mqs11=mques11.getText().toString();
         mqs12=mques12.getText().toString();
 
+        verifyStoragePermissions(reportActivity.this);
+
         try {
-            saveFile(mqs1,mans1,
+            //存储saveData到sd卡上
+              new saveFileInEx().saveFile(mqs1,mans1,
                      mqs2,mans2,
                      mqs3,mans3,
                      mqs4,mans4,
@@ -156,19 +160,21 @@ public class reportActivity extends AppCompatActivity {
                      mqs11,mans11,
                      mqs12,mans12
                     );
-//            saveFileInner(mqs1,mans1,
-//                    mqs2,mans2,
-//                    mqs3,mans3,
-//                    mqs4,mans4,
-//                    mqs5,mans5,
-//                    mqs6,mans6,
-//                    mqs7,mans7,
-//                    mqs8,mans8,
-//                    mqs9,mans9,
-//                    mqs10,mans10,
-//                    mqs11,mans11,
-//                    mqs12,mans12
-//            );
+            //存储saveData到内部存储
+            new saveFileInEx().saveFileInner(mqs1,mans1,
+                    mqs2,mans2,
+                    mqs3,mans3,
+                    mqs4,mans4,
+                    mqs5,mans5,
+                    mqs6,mans6,
+                    mqs7,mans7,
+                    mqs8,mans8,
+                    mqs9,mans9,
+                    mqs10,mans10,
+                    mqs11,mans11,
+                    mqs12,mans12
+            );
+            Toast.makeText(reportActivity.this,"成功存入SD卡和App中！",Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -186,187 +192,206 @@ public class reportActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
-
-    public void saveFile
-            (String message1,
-             String message2,
-             String message3,
-             String message4,
-             String message5,
-             String message6,
-             String message7,
-             String message8,
-             String message9,
-             String message10,
-             String message11,
-             String message12,
-             String message13,
-             String message14,
-             String message15,
-             String message16,
-             String message17,
-             String message18,
-             String message19,
-             String message20,
-             String message21,
-             String message22,
-             String message23,
-             String message24
-            )
-            throws IOException {
-
-        File path = Environment.getExternalStorageDirectory();
-       File saveData = new File(path, "saveData.json");
-        FileOutputStream fout=new FileOutputStream(saveData);
-        fout.write(message1.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message2.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message3.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message4.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message5.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message6.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message7.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message8.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message9.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message10.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message11.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message12.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message13.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message14.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message15.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message16.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message17.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message18.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message19.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message20.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message21.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message22.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message23.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write(message24.getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write("\r\n".getBytes());
-        fout.write("\r\n".getBytes());
-        fout.flush();
-        fout.close();
-
-        //Toast.makeText(reportActivity.this,"成功存入SD卡和应用包中！",Toast.LENGTH_SHORT).show();
-
 
     }
 
-    public void saveFileInner
-            (String message1,
-             String message2,
-             String message3,
-             String message4,
-             String message5,
-             String message6,
-             String message7,
-             String message8,
-             String message9,
-             String message10,
-             String message11,
-             String message12,
-             String message13,
-             String message14,
-             String message15,
-             String message16,
-             String message17,
-             String message18,
-             String message19,
-             String message20,
-             String message21,
-             String message22,
-             String message23,
-             String message24
-            )
-            throws IOException {
+    public class saveFileInEx{
 
-        File pathInner=Environment.getDataDirectory();
-        File saveDataInner=new File(pathInner, "saveDataInner.json");
-        FileOutputStream foutcode=new FileOutputStream(saveDataInner);
+        public void saveFile
+        (String message1,
+         String message2,
+         String message3,
+         String message4,
+         String message5,
+         String message6,
+         String message7,
+         String message8,
+         String message9,
+         String message10,
+         String message11,
+         String message12,
+         String message13,
+         String message14,
+         String message15,
+         String message16,
+         String message17,
+         String message18,
+         String message19,
+         String message20,
+         String message21,
+         String message22,
+         String message23,
+         String message24
+        )
+                throws IOException {
 
-        foutcode.write(message1.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message2.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message3.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message4.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message5.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message6.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message7.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message8.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message9.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message10.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message11.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message12.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message13.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message14.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message15.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message16.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message17.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message18.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message19.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message20.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message21.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message22.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message23.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write(message24.getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.write("\r\n".getBytes());
-        foutcode.flush();
-        foutcode.close();
+            File path =Environment.getExternalStorageDirectory();
+            File saveData = new File(path, "saveData.json");
+            FileOutputStream fout=new FileOutputStream(saveData);
+            fout.write(message1.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message2.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message3.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message4.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message5.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message6.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message7.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message8.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message9.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message10.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message11.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message12.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message13.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message14.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message15.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message16.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message17.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message18.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message19.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message20.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message21.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message22.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message23.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write(message24.getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write("\r\n".getBytes());
+            fout.write("\r\n".getBytes());
+            fout.flush();
+            fout.close();
 
+        }
 
+        //存储文件到内部存储
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        public void saveFileInner
+        (String message1,
+         String message2,
+         String message3,
+         String message4,
+         String message5,
+         String message6,
+         String message7,
+         String message8,
+         String message9,
+         String message10,
+         String message11,
+         String message12,
+         String message13,
+         String message14,
+         String message15,
+         String message16,
+         String message17,
+         String message18,
+         String message19,
+         String message20,
+         String message21,
+         String message22,
+         String message23,
+         String message24
+        )
+                throws IOException {
+            File pathInner=getApplicationContext().getDataDir();
+            File saveDataInner=new File(pathInner, "saveDataInner.json");
+            FileOutputStream foutcode=new FileOutputStream(saveDataInner);
+
+            foutcode.write(message1.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message2.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message3.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message4.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message5.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message6.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message7.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message8.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message9.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message10.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message11.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message12.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message13.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message14.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message15.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message16.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message17.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message18.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message19.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message20.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message21.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message22.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message23.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write(message24.getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.write("\r\n".getBytes());
+            foutcode.flush();
+            foutcode.close();
+
+        }
     }
 
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE" };
 
+    public static void verifyStoragePermissions(Activity activity) {
 
+        try {
+            //检测是否有写的权限
+            int permission = ActivityCompat.checkSelfPermission(activity,
+                    "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                // 没有写的权限，去申请写的权限，会弹出对话框
+                ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,REQUEST_EXTERNAL_STORAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
 
 
