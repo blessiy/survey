@@ -16,7 +16,7 @@
     android:layout_marginTop="5dp"
     android:textSize="13sp"
     android:id="@+id/question1"
-    android:text="1.Which brand of your phone will you choose if yoou are going to buy a new one?"
+    android:text="1.Which brand of your phone will you choose if you are going to buy a new one?"
     />
     <TextView
         android:layout_height="wrap_content"

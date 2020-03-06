@@ -16,9 +16,13 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
 public class reportActivity extends AppCompatActivity {
     private TextView mques1;
@@ -46,30 +50,7 @@ public class reportActivity extends AppCompatActivity {
     private TextView mques12;
     private TextView manswer12;
     private Button finishbutton;
-    private String mqs1;
-    private String mans1;
-    private String mqs2;
-    private String mans2;
-    private String mqs3;
-    private String mans3;
-    private String mqs4;
-    private String mans4;
-    private String mqs5;
-    private String mans5;
-    private String mqs6;
-    private String mans6;
-    private String mqs7;
-    private String mans7;
-    private String mqs8;
-    private String mans8;
-    private String mqs9;
-    private String mans9;
-    private String mqs10;
-    private String mans10;
-    private String mqs11;
-    private String mans11;
-    private String mqs12;
-    private String mans12;
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -117,63 +98,52 @@ public class reportActivity extends AppCompatActivity {
         manswer11.setText(sp.getString("answer11", ""));
         manswer12.setText(sp.getString("answer12", ""));
 
-        mans1=manswer1.getText().toString();
-        mans2=manswer2.getText().toString();
-        mans3=manswer3.getText().toString();
-        mans4=manswer4.getText().toString();
-        mans5=manswer5.getText().toString();
-        mans6=manswer6.getText().toString();
-        mans7=manswer7.getText().toString();
-        mans8=manswer8.getText().toString();
-        mans9=manswer9.getText().toString();
-        mans10=manswer10.getText().toString();
-        mans11=manswer11.getText().toString();
-        mans12=manswer12.getText().toString();
+        String [] mans=new String [12];
+        mans[0]=manswer1.getText().toString();
+        mans[1]=manswer2.getText().toString();
+        mans[2]=manswer3.getText().toString();
+        mans[3]=manswer4.getText().toString();
+        mans[4]=manswer5.getText().toString();
+        mans[5]=manswer6.getText().toString();
+        mans[6]=manswer7.getText().toString();
+        mans[7]=manswer8.getText().toString();
+        mans[8]=manswer9.getText().toString();
+        mans[9]=manswer10.getText().toString();
+        mans[10]=manswer11.getText().toString();
+        mans[11]=manswer12.getText().toString();
 
-        mqs1=mques1.getText().toString();
-        mqs2=mques2.getText().toString();
-        mqs3=mques3.getText().toString();
-        mqs4=mques4.getText().toString();
-        mqs5=mques5.getText().toString();
-        mqs6=mques6.getText().toString();
-        mqs7=mques7.getText().toString();
-        mqs8=mques8.getText().toString();
-        mqs9=mques9.getText().toString();
-        mqs10=mques10.getText().toString();
-        mqs11=mques11.getText().toString();
-        mqs12=mques12.getText().toString();
+        String [] mqs = new String [12];
+        mqs[0]=mques1.getText().toString();
+        mqs[1]=mques2.getText().toString();
+        mqs[2]=mques3.getText().toString();
+        mqs[3]=mques4.getText().toString();
+        mqs[4]=mques5.getText().toString();
+        mqs[5]=mques6.getText().toString();
+        mqs[6]=mques7.getText().toString();
+        mqs[7]=mques8.getText().toString();
+        mqs[8]=mques9.getText().toString();
+        mqs[9]=mques10.getText().toString();
+        mqs[10]=mques11.getText().toString();
+        mqs[11]=mques12.getText().toString();
+
+        //转换为Json数据
+        JSONArray array =new JSONArray();
+        for(int i=0; i<12; i++) {
+            JSONObject object =new JSONObject(new LinkedHashMap());
+                object.put("Question",mqs[i]);
+                object.put("Answer",mans[i]);
+                array.add(object);
+            }
+        JSONObject obj =new JSONObject(new LinkedHashMap());
+        obj.put("SurveyData",array);
 
         verifyStoragePermissions(reportActivity.this);
 
         try {
             //存储saveData到sd卡上
-              new saveFileInEx().saveFile(mqs1,mans1,
-                     mqs2,mans2,
-                     mqs3,mans3,
-                     mqs4,mans4,
-                     mqs5,mans5,
-                     mqs6,mans6,
-                     mqs7,mans7,
-                     mqs8,mans8,
-                     mqs9,mans9,
-                     mqs10,mans10,
-                     mqs11,mans11,
-                     mqs12,mans12
-                    );
+            new saveFileInEx().saveFile(obj);
             //存储saveData到内部存储
-            new saveFileInEx().saveFileInner(mqs1,mans1,
-                    mqs2,mans2,
-                    mqs3,mans3,
-                    mqs4,mans4,
-                    mqs5,mans5,
-                    mqs6,mans6,
-                    mqs7,mans7,
-                    mqs8,mans8,
-                    mqs9,mans9,
-                    mqs10,mans10,
-                    mqs11,mans11,
-                    mqs12,mans12
-            );
+            new saveFileInEx().saveFileInner(obj);
             Toast.makeText(reportActivity.this,"成功存入SD卡和App中！",Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -197,86 +167,13 @@ public class reportActivity extends AppCompatActivity {
 
     public class saveFileInEx{
 
-        public void saveFile
-        (String message1,
-         String message2,
-         String message3,
-         String message4,
-         String message5,
-         String message6,
-         String message7,
-         String message8,
-         String message9,
-         String message10,
-         String message11,
-         String message12,
-         String message13,
-         String message14,
-         String message15,
-         String message16,
-         String message17,
-         String message18,
-         String message19,
-         String message20,
-         String message21,
-         String message22,
-         String message23,
-         String message24
-        )
+        public void saveFile(JSONObject jsonObject)
                 throws IOException {
 
             File path =Environment.getExternalStorageDirectory();
             File saveData = new File(path, "saveData.json");
-            FileOutputStream fout=new FileOutputStream(saveData);
-            fout.write(message1.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message2.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message3.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message4.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message5.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message6.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message7.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message8.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message9.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message10.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message11.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message12.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message13.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message14.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message15.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message16.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message17.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message18.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message19.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message20.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message21.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message22.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message23.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write(message24.getBytes());
-            fout.write("\r\n".getBytes());
-            fout.write("\r\n".getBytes());
+            FileOutputStream fout=new FileOutputStream(saveData,true);
+            fout.write(jsonObject.toJSONString().getBytes());
             fout.write("\r\n".getBytes());
             fout.flush();
             fout.close();
@@ -285,86 +182,12 @@ public class reportActivity extends AppCompatActivity {
 
         //存储文件到内部存储
         @RequiresApi(api = Build.VERSION_CODES.N)
-        public void saveFileInner
-        (String message1,
-         String message2,
-         String message3,
-         String message4,
-         String message5,
-         String message6,
-         String message7,
-         String message8,
-         String message9,
-         String message10,
-         String message11,
-         String message12,
-         String message13,
-         String message14,
-         String message15,
-         String message16,
-         String message17,
-         String message18,
-         String message19,
-         String message20,
-         String message21,
-         String message22,
-         String message23,
-         String message24
-        )
+        public void saveFileInner(JSONObject jsonObject)
                 throws IOException {
             File pathInner=getApplicationContext().getDataDir();
             File saveDataInner=new File(pathInner, "saveDataInner.json");
-            FileOutputStream foutcode=new FileOutputStream(saveDataInner);
-
-            foutcode.write(message1.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message2.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message3.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message4.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message5.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message6.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message7.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message8.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message9.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message10.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message11.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message12.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message13.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message14.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message15.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message16.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message17.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message18.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message19.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message20.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message21.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message22.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message23.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write(message24.getBytes());
-            foutcode.write("\r\n".getBytes());
-            foutcode.write("\r\n".getBytes());
+            FileOutputStream foutcode=new FileOutputStream(saveDataInner,true);
+            foutcode.write(jsonObject.toJSONString().getBytes());
             foutcode.write("\r\n".getBytes());
             foutcode.flush();
             foutcode.close();

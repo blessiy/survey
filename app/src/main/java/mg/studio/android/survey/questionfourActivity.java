@@ -15,13 +15,6 @@ import android.widget.CheckBox;
 
 public class questionfourActivity extends AppCompatActivity {
     private Button mbutton;
-    private CheckBox mcheckbox1;
-    private CheckBox mcheckbox2;
-    private CheckBox mcheckbox3;
-    private CheckBox mcheckbox4;
-    private CheckBox mcheckbox5;
-    private CheckBox mcheckbox6;
-    private CheckBox mcheckbox7;
     private String manswer4;
     private ConstraintLayout mconstraintlayout;
 
@@ -29,13 +22,6 @@ public class questionfourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_four);
 
-        mcheckbox1=findViewById(R.id.checkbox1);
-        mcheckbox2=findViewById(R.id.checkbox2);
-        mcheckbox3=findViewById(R.id.checkbox3);
-        mcheckbox4=findViewById(R.id.checkbox4);
-        mcheckbox5=findViewById(R.id.checkbox5);
-        mcheckbox6=findViewById(R.id.checkbox6);
-        mcheckbox7=findViewById(R.id.checkbox7);
         mconstraintlayout=findViewById(R.id.constraintlayout);
 
 
